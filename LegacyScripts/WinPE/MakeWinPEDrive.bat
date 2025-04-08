@@ -10,15 +10,15 @@ if not %errorLevel% == 0 (
 
 :Start
 cls
-echo *********************************************************************************
-echo **  Make WinPE Drive - Windows Image Deployment Tools - (c) Joshua Glass 2023  **
-echo *********************************************************************************
-echo ** This Script will install WinPE onto a USB drive                             **
-echo ** THIS WILL WIPE THE DRIVE YOU HAVE SELECTED                                  **
-echo ** Please make sure you have run CreateAndModifyPE.bat before this script.     **
-echo ** Please make sure you have no drives mounted as P or O.                      **
-echo *********************************************************************************
-set /P c=Are you sure you want to continue [Y/N]? 
+echo ************************************************************************************
+echo **  Make WinPE Drive - Windows Image Deployment Tools - (c) SuperNinja_4965 2023  **
+echo ************************************************************************************
+echo ** This Script will install WinPE onto a USB drive                                **
+echo ** THIS WILL WIPE THE DRIVE YOU HAVE SELECTED                                     **
+echo ** Please make sure you have run CreateAndModifyPE.bat before this script.        **
+echo ** Please make sure you have no drives mounted as P or O.                         **
+echo ************************************************************************************
+set /P c=Are you sure you want to continue [Y/N]?
 if /I "%c%" EQU "Y" goto :Proceed
 if /I "%c%" EQU "N" goto :ENDOFFILE
 if /I "%c%" EQU "y" goto :Proceed
@@ -29,7 +29,7 @@ goto :Start
 call "C:\Program Files (x86)\Windows Kits\10\Assessment and Deployment Kit\Deployment Tools\DandISetEnv.bat"
 cd /D %~dp0
 if not exist .\WinPE_amd64\ (
-  set /P c=WinPE was not detected in this folder. Would you like to create and modify WinPE [Y/N]? 
+  set /P c=WinPE was not detected in this folder. Would you like to create and modify WinPE [Y/N]?
   if /I "%c%" EQU "N" goto :ENDOFFILE
   if /I "%c%" EQU "n" goto :ENDOFFILE
   call CreateAndModifyPE.bat Y
@@ -44,7 +44,7 @@ echo Would you like to create an iso image or USB Drive?
 echo If you are not sure you probably want a USB drive
 echo If you are using an ISO image you will need a separate USB drive or partition with the scrips on it.
 echo To do this just copy the scripts folder onto an NTFS formatted drive.
-set /P ISOorUSB=Type 1 for USB or 2 for ISO: 
+set /P ISOorUSB=Type 1 for USB or 2 for ISO:
 if /I "%ISOorUSB%" EQU "1" goto :MakeUSB
 if /I "%ISOorUSB%" EQU "2" goto :MakeISO
 goto :ISOorUSB
@@ -58,9 +58,9 @@ goto :ENDOFFILE
 echo List Disk
 echo Exit
 )  | diskpart
-set /p ChosenDrive=Please select a drive: 
+set /p ChosenDrive=Please select a drive:
 :choice
-set /P c=Are you sure you want to continue [Y/N]? 
+set /P c=Are you sure you want to continue [Y/N]?
 if /I "%c%" EQU "Y" goto :MakeDrive
 if /I "%c%" EQU "N" goto :ENDOFFILE
 if /I "%c%" EQU "y" goto :MakeDrive

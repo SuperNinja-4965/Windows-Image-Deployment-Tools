@@ -1,18 +1,18 @@
 @echo off
 :Start
 cls
-echo *****************************************************************************
-echo **  Setup Script - Windows Image Deployment Tools - (c) Joshua Glass 2023  **
-echo *****************************************************************************
-echo ** This is the setup script for the Windows Image Deployment Tools.        **
-echo ** This script will check you have the required dependencies installed as  **
-echo ** well as any configuration that is required has been made.               **
-echo ** There is currently a GUI in development which is designed to make these **
-echo ** scripts easier to use and include more features.                        **
-echo ** Please ensure you have read the documentation before starting.          **
-echo ** This software is licensed under the MIT License.                        **
-echo *****************************************************************************
-set /P c=Are you sure you want to continue [Y/N]? 
+echo ********************************************************************************
+echo **  Setup Script - Windows Image Deployment Tools - (c) SuperNinja_4965 2023  **
+echo ********************************************************************************
+echo ** This is the setup script for the Windows Image Deployment Tools.           **
+echo ** This script will check you have the required dependencies installed as     **
+echo ** well as any configuration that is required has been made.                  **
+echo ** There is currently a GUI in development which is designed to make these    **
+echo ** scripts easier to use and include more features.                           **
+echo ** Please ensure you have read the documentation before starting.             **
+echo ** This software is licensed under the MIT License.                           **
+echo ********************************************************************************
+set /P c=Are you sure you want to continue [Y/N]?
 if /I "%c%" EQU "Y" goto :Proceed
 if /I "%c%" EQU "N" goto :ENDOFFILE
 if /I "%c%" EQU "y" goto :Proceed
@@ -59,7 +59,7 @@ goto :ENDOFFILE
 echo There are 2 versions of these tools. The new (beta) GUI tools and the Legacy Console Tools
 echo If you use the GUI tools this should be the last console script you will need to run.
 echo Enter 1 for the GUI. Enter 2 for the Legacy Scripts.
-set /P c=Which Version of the tools would you like to run? 
+set /P c=Which Version of the tools would you like to run?
 if /I "%c%" EQU "1" goto :CompileSetupApp
 if /I "%c%" EQU "2" goto :LegacyScriptMenu
 
@@ -89,7 +89,7 @@ echo Please select a script:
 echo 1 - BuildImage.bat - Modify a captured image to add drivers, languages, etc.
 echo 2 - MakeWinPEDrive.bat - Install WinPE (and tools) to a USB drive or ISO file.
 echo 3 - CreateAndModifyPE.bat - Setup the WinPE image to add the tools.
-set /P c=Please Select an Option: 
+set /P c=Please Select an Option:
 if /I "%c%" EQU "1" goto :BuildImageBat
 if /I "%c%" EQU "2" goto :MakeWinPEDriveBat
 if /I "%c%" EQU "3" goto :CreateAndModifyPEBat

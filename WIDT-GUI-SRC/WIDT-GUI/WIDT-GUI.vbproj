@@ -6,24 +6,24 @@
     <RootNamespace>WIDT_GUI</RootNamespace>
     <UseWindowsForms>true</UseWindowsForms>
     <MyType>WindowsForms</MyType>
-	<ApplicationManifest>app.manifest</ApplicationManifest>
+    <ApplicationManifest>app.manifest</ApplicationManifest>
     <Configurations>Debug;Release</Configurations>
     <StartupObject>WIDT_GUI.My.MyApplication</StartupObject>
 
-	<PackageRequireLicenseAcceptance>true</PackageRequireLicenseAcceptance>
-    <PackageProjectUrl>https://github.com/joshuag1000/Windows-Image-Deployment-Tools</PackageProjectUrl>
+    <PackageRequireLicenseAcceptance>true</PackageRequireLicenseAcceptance>
+    <PackageProjectUrl>https://github.com/SuperNinja-4965/Windows-Image-Deployment-Tools</PackageProjectUrl>
     <PackageReadmeFile>README.md</PackageReadmeFile>
-    <RepositoryUrl>https://github.com/joshuag1000/Windows-Image-Deployment-Tools</RepositoryUrl>
+    <RepositoryUrl>https://github.com/SuperNinja-4965/Windows-Image-Deployment-Tools</RepositoryUrl>
     <RepositoryType>git</RepositoryType>
     <PackageLicenseFile>LICENSE</PackageLicenseFile>
-	
-	<PackageId>dev.joshuaglass.WIDT-GUI</PackageId>
+
+    <PackageId>ninja.4965.WIDT-GUI</PackageId>
     <Title>Windows Image Deployment Tools</Title>
-	<Authors>Joshua Glass</Authors>
-	<Copyright>Copyright © Joshua Glass 2023</Copyright>
-	<Description>Tool for Deploying Windows Images</Description>
-	<PackageVersion>1.0.0</PackageVersion>
-	<Product>$(Title)</Product>
+    <Authors>SuperNinja_4965</Authors>
+    <Copyright>Copyright © SuperNinja_4965 2023</Copyright>
+    <Description>Tool for Deploying Windows Images</Description>
+    <PackageVersion>1.0.0</PackageVersion>
+    <Product>$(Title)</Product>
   </PropertyGroup>
 
   <ItemGroup>

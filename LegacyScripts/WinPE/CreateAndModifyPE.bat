@@ -6,22 +6,22 @@ net session >nul 2>&1
 if not %errorLevel% == 0 (
     echo You are not running this script as administrator. Please run again as administrator.
 	goto :ENDOFFILE
-) 
+)
 
 :Start
 cls
-echo *****************************************************************************
-echo **  Setup WinPE - Windows Image Deployment Tools - (c) Joshua Glass 2023   **
-echo *****************************************************************************
-echo ** This Script will and modify WinPE so it can be                          **
-echo ** used with other scripts in this folder.                                 **
-echo *****************************************************************************
+echo ********************************************************************************
+echo **  Setup WinPE - Windows Image Deployment Tools - (c) SuperNinja_4965 2023   **
+echo ********************************************************************************
+echo ** This Script will and modify WinPE so it can be                             **
+echo ** used with other scripts in this folder.                                    **
+echo ********************************************************************************
 set OVERRIDEYN=N
 Set OVERRIDEYN=%1
-if "%OVERRIDEYN%"=="Y" ( 
-	goto :Proceed 
+if "%OVERRIDEYN%"=="Y" (
+	goto :Proceed
 )
-set /P c=Are you sure you want to continue [Y/N]? 
+set /P c=Are you sure you want to continue [Y/N]?
 if /I "%c%" EQU "Y" goto :Proceed
 if /I "%c%" EQU "y" goto :Proceed
 if /I "%c%" EQU "N" goto :ENDOFFILE
@@ -32,7 +32,7 @@ goto :Start
 call "C:\Program Files (x86)\Windows Kits\10\Assessment and Deployment Kit\Deployment Tools\DandISetEnv.bat"
 cd /D %~dp0
 if exist .\WinPE_amd64\ (
-  set /P c=You already have a WinPE Folder. It will be deleted. Proceed [Y/N]? 
+  set /P c=You already have a WinPE Folder. It will be deleted. Proceed [Y/N]?
   if /I "%c%" EQU "N" goto :ENDOFFILE
   if /I "%c%" EQU "n" goto :ENDOFFILE
   rmdir /s /q .\WinPE_amd64
@@ -51,6 +51,6 @@ echo Image Modification Complete.
 call Dism /Unmount-Image /MountDir:.\WinPE_amd64\mount /Commit
 echo WinPE is ready for deployment.
 :ENDOFFILE
-if not "%OVERRIDEYN%"=="Y" ( 
+if not "%OVERRIDEYN%"=="Y" (
 	pause
 )

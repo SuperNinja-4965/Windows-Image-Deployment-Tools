@@ -6,19 +6,19 @@ net session >nul 2>&1
 if not %errorLevel% == 0 (
     echo You are not running this script as administrator. Please run again as administrator.
 	goto :ENDOFFILE
-) 
+)
 
 :Start
 cls
-echo *****************************************************************************
-echo **  Build Image - Windows Image Deployment Tools - (c) Joshua Glass 2023   **
-echo *****************************************************************************
-echo ** This script will create a Wim Image to be used to deploy an image.      **
-echo ** This script works in stages. Each Stage creates its own wim.            **
-echo ** Created image will be named Completed-YourImageName.wim                 **
-echo ** This script can only be run once at a time                              **
-echo *****************************************************************************
-set /P c=Are you sure you want to continue [Y/N]? 
+echo ********************************************************************************
+echo **  Build Image - Windows Image Deployment Tools - (c) SuperNinja_4965 2023   **
+echo ********************************************************************************
+echo ** This script will create a Wim Image to be used to deploy an image.         **
+echo ** This script works in stages. Each Stage creates its own wim.               **
+echo ** Created image will be named Completed-YourImageName.wim                    **
+echo ** This script can only be run once at a time                                 **
+echo ********************************************************************************
+set /P c=Are you sure you want to continue [Y/N]?
 if /I "%c%" EQU "Y" goto :Proceed
 if /I "%c%" EQU "N" goto :ENDOFFILE
 if /I "%c%" EQU "y" goto :Proceed
@@ -27,7 +27,7 @@ goto :Start
 
 :Proceed
 cd /D %~dp0
-if not exist .\Images\ ( 
+if not exist .\Images\ (
 	mkdir Images
 	echo Please put an image to use in the Images Folder and re-run the script
 	goto :ENDOFFILE
@@ -36,7 +36,7 @@ if exist .\Images\Working\ (
 	echo .\Images\Working\
 	rmdir /s /q .\Images\Working\
 )
-if not exist .\Images\Working\ ( 
+if not exist .\Images\Working\ (
 	mkdir Images\Working
 )
 echo Please select an image.
@@ -57,21 +57,21 @@ set /p "selection=Image Number: "
 set SelectedImage=!folder%selection%!
 set OrigionalImage=!folder%selection%!
 
-if not exist .\Mountpoint\ ( 
+if not exist .\Mountpoint\ (
 	mkdir .\Mountpoint
 )
 
 :Questions
 :: Drivers
 :InstallDriversYN
-set /P DriversYesNo=Would you like to install drivers to this image [Y/N]? 
+set /P DriversYesNo=Would you like to install drivers to this image [Y/N]?
 if /I "%DriversYesNo%" EQU "N" goto :InstallLanguagesYN
 if /I "%DriversYesNo%" EQU "Y" goto :InstallDriversY
 if /I "%DriversYesNo%" EQU "n" goto :InstallLanguagesYN
 if /I "%DriversYesNo%" EQU "y" goto :InstallDriversY
 goto :InstallDriversYN
 :InstallDriversY
-if not exist .\Drivers\ ( 
+if not exist .\Drivers\ (
 	mkdir Drivers
 	echo Please put drivers into the drivers folder. HAVE A SUBFOLDER FOR EACH SET OF DRIVERS. ie: Drivers for Brand1 would go in .\Drivers\Brand1
 	goto :ENDOFFILE
@@ -95,14 +95,14 @@ set DriversToInstall=!folder%Driverselection%!
 
 :: Languages
 :InstallLanguagesYN
-set /P LanguagesYesNo=Would you like to install languages to this image [Y/N]? 
+set /P LanguagesYesNo=Would you like to install languages to this image [Y/N]?
 if /I "%LanguagesYesNo%" EQU "N" goto :CleanupImageYN
 if /I "%LanguagesYesNo%" EQU "Y" goto :InstallLanguagesY
 if /I "%LanguagesYesNo%" EQU "n" goto :CleanupImageYN
 if /I "%LanguagesYesNo%" EQU "y" goto :InstallLanguagesY
 goto :InstallLanguagesYN
 :InstallLanguagesY
-if not exist .\Languages\ ( 
+if not exist .\Languages\ (
 	mkdir Languages
 	echo Please put the languages into the Languages folder. HAVE A SUBFOLDER FOR EACH LANGUAGE.
 	echo To install a language 3 files are needed: LanguageExperiencePack.LANGUAGECODE.Neutral.appx, License.xml, Microsoft-Windows-Client-Language-Pack_x64_LANGUAGECODE.cab
@@ -112,7 +112,7 @@ if not exist .\Languages\ (
 
 :: Cleanup
 :CleanupImageYN
-set /P CleanUpYesNo=Would you like to cleanup this image [Y/N]? 
+set /P CleanUpYesNo=Would you like to cleanup this image [Y/N]?
 if /I "%CleanUpYesNo%" EQU "N" goto :StartOperations
 if /I "%CleanUpYesNo%" EQU "Y" goto :StartOperations
 if /I "%CleanUpYesNo%" EQU "n" goto :StartOperations
